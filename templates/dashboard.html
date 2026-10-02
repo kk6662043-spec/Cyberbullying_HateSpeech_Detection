@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - SafeText AI</title>
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            SafeText AI
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/detect">Detect Text</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Dashboard -->
+
+    <section class="dashboard-section">
+
+        <div class="dashboard-container">
+
+            <h1>Welcome to SafeText AI</h1>
+
+            <p class="dashboard-description">
+                Cyberbullying & Hate Speech Detection Dashboard
+            </p>
+
+
+            <!-- Statistics -->
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <h3>Total Detections</h3>
+                    <p class="stat-number">{{ total }}</p>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+                    <h3>Normal</h3>
+                    <p class="stat-number">{{ normal }}</p>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">⚠</div>
+                    <h3>Cyberbullying</h3>
+                    <p class="stat-number">{{ cyberbullying }}</p>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">🛡</div>
+                    <h3>Hate Speech</h3>
+                    <p class="stat-number">{{ hate_speech }}</p>
+                </div>
+
+            </div>
+
+
+            <!-- Main Dashboard Cards -->
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+                        🔍
+                    </div>
+
+                    <h2>Detect Text</h2>
+
+                    <p>
+                        Analyze text and identify
+                        Normal, Cyberbullying,
+                        or Hate Speech.
+                    </p>
+
+                    <a href="/detect" class="dashboard-btn">
+                        Start Detection
+                    </a>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+                        📊
+                    </div>
+
+                    <h2>Detection History</h2>
+
+                    <p>
+                        View previously analyzed
+                        text and prediction results.
+                    </p>
+
+                    <a href="/history" class="dashboard-btn">
+                        View History
+                    </a>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon">
+                        🛡️
+                    </div>
+
+                    <h2>AI Protection</h2>
+
+                    <p>
+                        Machine Learning based text
+                        classification system.
+                    </p>
+
+                    <a href="/detect" class="dashboard-btn">
+                        Analyze Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 SafeText AI | Cyberbullying & Hate Speech Detection
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

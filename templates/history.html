@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Detection History - SafeText AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            SafeText AI
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/detect">Detect Text</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <section class="history-section">
+
+        <div class="history-container">
+
+            <h1>Detection History</h1>
+
+            <p class="history-description">
+                Previously analyzed text and detection results
+            </p>
+
+
+            {% if records %}
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Text</th>
+                            <th>Prediction</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for record in records %}
+
+                        <tr>
+
+                            <td>
+                                {{ record[0] }}
+                            </td>
+
+                            <td class="history-text">
+                                {{ record[1] }}
+                            </td>
+
+                            <td>
+
+                                {% if record[2] == "Normal" %}
+
+                                    <span class="history-normal">
+                                        Normal
+                                    </span>
+
+                                {% elif record[2] == "Cyberbullying" %}
+
+                                    <span class="history-cyberbullying">
+                                        Cyberbullying
+                                    </span>
+
+                                {% elif record[2] == "Hate Speech" %}
+
+                                    <span class="history-hate">
+                                        Hate Speech
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+                                {{ record[3] }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="no-history">
+
+                <h2>No Detection History</h2>
+
+                <p>
+                    No text has been analyzed yet.
+                </p>
+
+                <a href="/detect" class="dashboard-btn">
+                    Start Detection
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 SafeText AI |
+            Cyberbullying & Hate Speech Detection
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

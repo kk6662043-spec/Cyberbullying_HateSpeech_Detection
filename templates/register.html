@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register - SafeText AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <section class="register-page">
+
+        <div class="register-card">
+
+            <!-- Logo -->
+
+            <div class="register-logo">
+
+                <div class="register-shield">
+                    🛡️
+                </div>
+
+                <div class="register-logo-text">
+                    <h1>SafeText</h1>
+                    <span>AI</span>
+                </div>
+
+            </div>
+
+
+            <p class="register-tagline">
+                AI-Powered Text Safety
+            </p>
+
+
+            <!-- Heading -->
+
+            <div class="register-heading">
+
+                <h2>Create Account</h2>
+
+                <p>
+                    Register to start using SafeText AI
+                </p>
+
+            </div>
+
+
+            {% if error %}
+
+            <div class="register-error">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+
+            <!-- Register Form -->
+
+            <form method="POST">
+
+                <div class="register-input-group">
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="register-input-group">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="register-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <!-- Login Link -->
+
+            <div class="register-login-link">
+
+                <span>Already have an account?</span>
+
+                <a href="/login">
+                    Login
+                </a>
+
+            </div>
+
+
+            <a href="/" class="register-back-home">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="register-footer">
+
+        <p>
+            © 2026 SafeText AI |
+            Cyberbullying & Hate Speech Detection
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+```
